@@ -366,8 +366,10 @@ WebPStatus __stdcall WebPSave(
         return WebPStatus::ApiVersionMismatch; // WebP API version mismatch
     }
 
-    config.method = 6; // 6 is the highest quality encoding
+    config.method = 5; // 6 is the highest quality encoding
     config.thread_level = 1;
+    config.use_sharp_yuv = 1;
+    config.autofilter = 0;
 
     if (encodeOptions->lossless)
     {
@@ -471,3 +473,4 @@ WebPStatus __stdcall WebPSave(
 
     return status;
 }
+
